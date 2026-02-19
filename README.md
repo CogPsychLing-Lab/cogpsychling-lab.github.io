@@ -2,7 +2,7 @@
 
 Website for the **Cognitive Science and Psycholinguistics Laboratory (CSPL)** at Tribhuvan University, Kirtipur, Nepal.
 
-*Bracing the brain, minding the mind*
+*Mining the Mind, Bracing the Brain*
 
 ## About
 

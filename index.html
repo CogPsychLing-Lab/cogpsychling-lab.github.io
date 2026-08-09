@@ -13,7 +13,7 @@
   <meta property="og:url" content="https://cogpsychling-lab.github.io/">
   <meta property="og:image" content="https://cogpsychling-lab.github.io/assets/img/cspl-logo.jpeg">
   <meta name="twitter:card" content="summary">
-  <link rel="icon" type="image/svg+xml" href="assets/img/cspl-logo.svg">
+  <link rel="icon" type="image/png" href="assets/img/cspl.png">
   <link rel="stylesheet" href="assets/css/style.css">
   <script type="application/ld+json">
   {
@@ -22,7 +22,7 @@
     "name": "Cognitive Science and Psycholinguistics Laboratory",
     "alternateName": "CSPL",
     "url": "https://cogpsychling-lab.github.io/",
-    "logo": "https://cogpsychling-lab.github.io/assets/img/fulllab_logo-removebg.png",
+    "logo": "https://cogpsychling-lab.github.io/assets/img/cspl-logo-with-motto.png",
     "description": "Nepal's first cognitive science laboratory studying bilingual and multilingual cognition, parallel language activation, and psycholinguistics using mousetracking and eye-tracking methods.",
     "slogan": "Mining the Mind, Bracing the Brain",
     "foundingDate": "2021",
@@ -80,15 +80,18 @@
 
   <header class="site-header">
     <div class="container">
-      <a href="index.html" class="site-brand">Cognitive Science and Psycholinguistics Lab</a>
-      <button class="nav-toggle" onclick="document.querySelector('.site-nav').classList.toggle('open')" aria-label="Menu">
+      <a href="index.html" class="site-brand" aria-label="CSPL home">
+        <img src="assets/img/cspl.png" alt="" class="brand-logo">
+        <span class="brand-copy"><strong>CSPL</strong><small>Cognitive Science &amp; Psycholinguistics Lab</small></span>
+      </a>
+      <button class="nav-toggle" onclick="const nav=this.nextElementSibling; const open=nav.classList.toggle('open'); this.setAttribute('aria-expanded', String(open));" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
         <span></span><span></span><span></span>
       </button>
-      <nav class="site-nav">
+      <nav class="site-nav" id="site-nav">
         <a href="index.html" class="active">Home</a>
         <a href="people.html">People</a>
         <a href="publications.html">Publications</a>
-        <a href="workshops.html">Events &amp; Trainings</a>
+        <a href="workshops.html">Events &amp; Training</a>
       </nav>
     </div>
   </header>
@@ -99,26 +102,35 @@
     <section class="hero">
       <div class="container container--wide">
         <div class="hero-inner">
-          <div class="hero-visual">
-            <img src="assets/img/fulllab_logo-removebg.png" alt="CSPL Lab Logo" class="hero-logo">
+          <div class="hero-grid">
+            <div class="hero-primary">
+              <p class="label">Central Department of Linguistics · Tribhuvan University</p>
+              <h1>Language and cognition in multilingual Nepal.</h1>
+              <div class="hero-distinction">
+                <p class="hero-distinction-en">Estd. 2021 · First lab of its kind in Nepal</p>
+                <p class="hero-distinction-ne" lang="ne">स्थापना २०७७ · नेपालमा यस विषयको पहिलो प्रयोगशाला</p>
+              </div>
+            </div>
+            <div class="hero-secondary">
+              <img src="assets/img/cspl-logo-with-motto.png" alt="Cognitive Science and Psycholinguistics Lab, Central Department of Linguistics, Tribhuvan University, Nepal — Mining the Mind, Bracing the Brain" class="hero-logo">
+              <p class="subtitle">
+                CSPL studies how bilingualism, trilingualism, literacy, and culture shape
+                language processing and the mind.
+              </p>
+              <div class="hero-language-block">
+                <p class="hero-nepali" lang="ne">संज्ञानात्मक विज्ञान तथा मनोभाषाविज्ञान प्रयोगशाला</p>
+                <p class="identity-nepali" lang="ne">भाषाविज्ञान केन्द्रीय विभाग · त्रिभुवन विश्वविद्यालय, नेपाल</p>
+              </div>
+              <div class="hero-actions">
+                <a href="people.html" class="btn-primary">Meet the Team</a>
+                <a href="publications.html" class="btn-ghost">Publications</a>
+              </div>
+            </div>
           </div>
-          <div class="hero-text">
-            <p class="subtitle">
-              Nepal's first and only experimental laboratory studying how bilingualism,
-              multilingualism, literacy, and culture shape the mind.
-            </p>
-            <p class="motto">Mining the Mind, Bracing the Brain</p>
-            <div class="hero-actions">
-              <a href="people.html" class="btn-primary">Meet the Team</a>
-              <a href="publications.html" class="btn-ghost">Publications</a>
-            </div>
-            <div class="hero-meta">
-              <span>Kirtipur, Kathmandu</span>
-              <span class="sep">·</span>
-              <span>Tribhuvan University</span>
-              <span class="sep">·</span>
-              <span>Est. 2021</span>
-            </div>
+          <div class="hero-meta">
+            <span>Kirtipur, Kathmandu</span>
+            <span class="sep">·</span>
+            <span>Tribhuvan University</span>
           </div>
         </div>
       </div>
@@ -127,25 +139,52 @@
     <!-- ── Collab strip ── -->
     <div class="collab-strip">
       <div class="container container--wide collab-strip-inner">
-        <span class="collab-label">Collaborators</span>
+        <span class="collab-label">Collaborators &amp; associated work</span>
         <ul class="collab-list">
           <li><a href="https://www.uzh.ch/en.html" target="_blank" rel="noopener">University of Zürich</a></li>
           <li><a href="https://evolvinglanguage.ch/" target="_blank" rel="noopener">NCCR Evolving Language</a></li>
+          <li><a href="https://kathmandupost.com/science-technology/2026/07/21/these-seven-nepali-startups-are-building-technology-that-tackles-real-world-problems" target="_blank" rel="noopener">Team Synaptic</a></li>
         </ul>
       </div>
     </div>
 
-    <!-- ── Our Story / News (tabbed) ── -->
+    <!-- ── Current work ── -->
+    <section class="section field-notes fade-in">
+      <div class="container container--wide">
+        <div class="field-heading">
+          <p class="label">From the lab</p>
+          <h2>Research in public</h2>
+          <p>Talks, workshops, and collaborations carrying CSPL's work beyond Kirtipur.</p>
+        </div>
+        <div class="field-grid">
+          <article class="field-story field-story--video">
+            <div class="video-wrap">
+              <iframe src="https://www.youtube-nocookie.com/embed/x7suZn9x788" title="Dr. Lekhnath Sharma Pathak's invited talk at Jadavpur University" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="field-copy">
+              <p class="field-meta">Jadavpur University · Kolkata · 8 August 2026</p>
+              <h3>Bilingual and trilingual parallel language activation</h3>
+              <p>Dr. Lekhnath Sharma Pathak delivered an invited lecture at the international conference on <em>Language, Mind, and Society</em>. A hands-on workshop on mouse tracking in language-processing research is scheduled for 10 August.</p>
+              <a href="https://www.youtube.com/watch?v=x7suZn9x788" target="_blank" rel="noopener">Watch the invited talk <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="field-story field-story--synaptic">
+            <div class="field-copy">
+              <p class="field-meta">Associated initiative · July 2026</p>
+              <h3>Team Synaptic builds bilingual AR tools for vocabulary learning</h3>
+              <p>The Kathmandu University team is developing Card AI for children with autism, learning difficulties, and speech delays. Its physical cards open into 3D visuals and natural sounds in Nepali and English.</p>
+              <p>Team Synaptic has been collaborating with CSPL and the Hope Care Centre while testing its prototype with teachers, parents, and therapists.</p>
+              <a href="https://kathmandupost.com/science-technology/2026/07/21/these-seven-nepali-startups-are-building-technology-that-tackles-real-world-problems" target="_blank" rel="noopener">Read the Kathmandu Post feature <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Our Story / News ── -->
     <section class="section fade-in">
       <div class="container container--wide">
-
-        <div class="tab-row">
-          <button class="tab-btn active" data-tab="story">Our Story</button>
-          <button class="tab-btn" data-tab="news">News</button>
-        </div>
-
-        <!-- Our Story panel -->
-        <div class="tab-panel" id="tab-story">
+        <div class="overview-block">
           <div class="home-two-col">
             <div>
               <p class="label">About</p>
@@ -178,12 +217,12 @@
               <div class="rule-accent"></div>
               <div class="timeline">
                 <div class="timeline-item">
-                  <span class="timeline-year">2021</span>
-                  <span class="timeline-text">Lab founded at CDL, Tribhuvan University. First of its kind in Nepal</span>
+                  <span class="timeline-year">2020</span>
+                  <span class="timeline-text">Dr. Pathak delivered a keynote and Rijal &amp; Pathak presented early CSPL research at BITS Pilani, Goa</span>
                 </div>
                 <div class="timeline-item">
                   <span class="timeline-year">2021</span>
-                  <span class="timeline-text">First publication: L2 instruction enhances L1 abilities (JCCS)</span>
+                  <span class="timeline-text">Lab formally established at CDL, Tribhuvan University on 7 February; first peer-reviewed paper published in <em>Journal of Cultural Cognitive Science</em></span>
                 </div>
                 <div class="timeline-item">
                   <span class="timeline-year">2023</span>
@@ -191,23 +230,34 @@
                 </div>
                 <div class="timeline-item">
                   <span class="timeline-year">2025</span>
-                  <span class="timeline-text">Two papers in top international journals: <em>Bilingualism: Language and Cognition</em> and <em>International Journal of Bilingualism</em></span>
+                  <span class="timeline-text">Two multilingual-processing studies appeared in <em>Bilingualism: Language and Cognition</em> and the <em>International Journal of Bilingualism</em></span>
+                </div>
+                <div class="timeline-item">
+                  <span class="timeline-year">2026</span>
+                  <span class="timeline-text">Invited lecture and mouse-tracking workshop at Jadavpur University, Kolkata</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- News panel -->
-        <div class="tab-panel hidden" id="tab-news">
-          <p class="label">Latest</p>
-          <h2>News</h2>
-          <div class="rule-accent"></div>
+        <div class="latest-activity">
+          <div class="latest-header">
+            <div>
+              <p class="label">Latest from the lab</p>
+              <h2>Recent activity</h2>
+            </div>
+            <a href="workshops.html" class="text-link">Explore events <span aria-hidden="true">→</span></a>
+          </div>
           <div class="home-two-col">
             <ul class="news-list">
               <li class="news-item">
-                <time class="news-date" datetime="2026-02">Feb 2026</time>
-                <span class="news-text">Lab website is live. Welcome to our online home.</span>
+                <time class="news-date" datetime="2026-08-08">Aug 2026</time>
+                <span class="news-text">Dr. Pathak delivered an invited lecture on <strong>bilingual and trilingual parallel language activation</strong> at Jadavpur University.</span>
+              </li>
+              <li class="news-item">
+                <time class="news-date" datetime="2026-07-21">Jul 2026</time>
+                <span class="news-text"><strong>Team Synaptic</strong>, an initiative associated with CSPL, was recognised among Nepal's leading Code for Impact teams.</span>
               </li>
               <li class="news-item">
                 <time class="news-date" datetime="2026-02">Feb 2026</time>
@@ -216,36 +266,28 @@
                   Dr. Laura Giglio (University of Zürich).
                 </span>
               </li>
-              <li class="news-item">
-                <time class="news-date" datetime="2026-01">Jan 2026</time>
-                <span class="news-text">
-                  <strong>Team Synaptic</strong>, associated with the lab, won the
-                  Hult Prize at Kathmandu University for AR/AI-based technology
-                  supporting vocabulary acquisition in children with autism.
-                </span>
-              </li>
             </ul>
             <ul class="news-list">
               <li class="news-item">
+                <time class="news-date" datetime="2026-01">Jan 2026</time>
+                <span class="news-text"><strong>Team Synaptic</strong> won the Hult Prize at Kathmandu University for its AR/AI vocabulary-learning technology.</span>
+              </li>
+              <li class="news-item">
                 <time class="news-date" datetime="2025-10">Oct 2025</time>
                 <span class="news-text">
-                  Lab member Sambit Rimal awarded the <strong>CogSci × Gorilla Grant 2025</strong>
-                   for trilingual cognitive control research.
+                  Lab member Sambit Rimal was named a 2025
+                  <a href="https://cognitivesciencesociety.org/cogsci-x-gorilla-grant-2025/" target="_blank" rel="noopener"><strong>CogSci × Gorilla Grant</strong></a>
+                  recipient for trilingual cognitive control research.
                 </span>
               </li>
               <li class="news-item">
                 <time class="news-date" datetime="2025">2025</time>
                 <span class="news-text">
-                  <strong>Pathak, Pathak &amp; Mishra</strong> published in the
-                  <em>International Journal of Bilingualism</em>, the lab's first
-                  international journal publication.
-                </span>
-              </li>
-              <li class="news-item">
-                <time class="news-date" datetime="2024">2024</time>
-                <span class="news-text">
-                  Joint cross-cultural psycholinguistics workshop with
-                  University of Zürich / NCCR Evolving Language at Kirtipur.
+                  Lab researchers published two multilingual-processing studies:
+                  <a href="https://doi.org/10.1017/S1366728924000257" target="_blank" rel="noopener"><em>Trilingual parallel processing</em></a>
+                  in <em>Bilingualism: Language and Cognition</em>, and
+                  <a href="https://doi.org/10.1177/13670069251331880" target="_blank" rel="noopener"><em>Immersion in second language</em></a>
+                  in the <em>International Journal of Bilingualism</em>.
                 </span>
               </li>
             </ul>
@@ -309,11 +351,16 @@
         </div>
 
         <!-- ── Methods block ── -->
-        <div class="methods-block fade-in">
+        <div class="methods-block fade-in" id="methods">
+
+          <div class="methods-intro">
+            <p class="label">Methods in practice</p>
+            <h2>Tracing language processing as it happens.</h2>
+          </div>
 
           <div class="method-panel">
             <div class="method-panel-text">
-              <p class="label">Primary paradigm</p>
+              <p class="method-kicker">01 · Action dynamics</p>
               <h3>Mousetracking</h3>
               <p>MouseTracker records kinematic action control as participants make mouse-click responses to linguistic and cognitive stimuli, measured in milliseconds. Curvature toward a competitor target directly indexes the degree of parallel language activation, making covert cognitive competition visible in the arc of a cursor.</p>
             </div>
@@ -330,22 +377,20 @@
             </div>
           </div>
 
-          <div class="method-panel">
+          <div class="method-panel method-panel--eyetracking">
             <div class="method-panel-text">
-              <p class="label">Complementary Paradigm</p>
+              <p class="method-kicker">02 · Visual attention</p>
               <h3>Eye-tracking</h3>
-              <p>Fixation heatmaps reveal where and how long a reader's gaze lingers on each word, exposing the cognitive effort of lexical processing across languages and scripts in real time.</p>
+              <p>Eye-tracking records where and for how long participants look while reading or viewing experimental stimuli. Fixations and gaze paths help us examine lexical processing, attention, and language–script interactions as they unfold.</p>
             </div>
             <div class="method-panel-visual">
-              <div class="method-canvas-wrap">
-                <div class="method-canvas-caption">Reading fixation heatmap · simulated scanpath</div>
-                <canvas id="vwp-canvas" aria-hidden="true"></canvas>
-                <div class="method-canvas-legend">
-                  <span class="mtleg" style="--lc:#D03020">Long fixation</span>
-                  <span class="mtleg" style="--lc:#E8A820">Medium</span>
-                  <span class="mtleg" style="--lc:#50B848">Short / skipped</span>
+              <figure class="eye-photo-figure">
+                <div class="eye-photo-pair">
+                  <img src="assets/img/methods/eye-tracking-rear-view.jpg" alt="A participant using the laboratory eye-tracking apparatus while viewing stimuli on a monitor" loading="lazy">
+                  <img src="assets/img/methods/eye-tracking-side-view.jpg" alt="Side view of a participant positioned in the laboratory eye-tracking apparatus" loading="lazy">
                 </div>
-              </div>
+                <figcaption>Eye-tracking research in the CSPL laboratory, Tribhuvan University.</figcaption>
+              </figure>
             </div>
           </div>
 
@@ -375,7 +420,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <div class="footer-motto">Mining the Mind, Bracing the Brain</div>
+        <div class="footer-nepali" lang="ne">संज्ञानात्मक विज्ञान तथा मनोभाषाविज्ञान प्रयोगशाला · त्रिभुवन विश्वविद्यालय</div>
         Cognitive Science and Psycholinguistics Laboratory, Tribhuvan University
       </div>
     </div>
@@ -393,15 +438,6 @@
     });
 
     /* ── Tab switching (Our Story / News) ── */
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
-        btn.classList.add('active');
-        document.getElementById('tab-' + btn.dataset.tab).classList.remove('hidden');
-      });
-    });
-
     /* ── Mousetracking canvas — bezier overlaid trajectories ── */
     (function () {
       const canvas = document.getElementById('mt-canvas');

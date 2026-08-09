@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Workshops | CSPL</title>
+  <title>Events &amp; Training | CSPL</title>
   <meta name="description" content="Workshops and training events by CSPL — cognitive science, psycholinguistics, and research methods training at Tribhuvan University, Nepal. Building research capacity in South Asia.">
   <meta name="keywords" content="cognitive science workshop Nepal, psycholinguistics training, CSPL events, research methods workshop Kathmandu, Tribhuvan University training, South Asia cognitive science">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Events & Trainings | CSPL">
+  <meta property="og:title" content="Events & Training | CSPL">
   <meta property="og:description" content="Workshops and training events in cognitive science and psycholinguistics organized by CSPL at Tribhuvan University, Nepal.">
   <meta property="og:url" content="https://cogpsychling-lab.github.io/workshops.html">
   <meta property="og:image" content="https://cogpsychling-lab.github.io/assets/img/cspl-logo.jpeg">
   <meta name="twitter:card" content="summary">
-  <link rel="icon" type="image/svg+xml" href="assets/img/cspl-logo.svg">
+  <link rel="icon" type="image/png" href="assets/img/cspl.png">
   <link rel="stylesheet" href="assets/css/style.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Events & Trainings — CSPL",
+    "name": "Events & Training — CSPL",
     "url": "https://cogpsychling-lab.github.io/workshops.html",
     "description": "Workshops and training events in cognitive science and psycholinguistics organized by CSPL at Tribhuvan University.",
     "isPartOf": { "@type": "WebSite", "name": "CSPL", "url": "https://cogpsychling-lab.github.io/" },
@@ -26,7 +26,7 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://cogpsychling-lab.github.io/" },
-        { "@type": "ListItem", "position": 2, "name": "Events & Trainings", "item": "https://cogpsychling-lab.github.io/workshops.html" }
+        { "@type": "ListItem", "position": 2, "name": "Events & Training", "item": "https://cogpsychling-lab.github.io/workshops.html" }
       ]
     }
   }
@@ -36,35 +36,66 @@
 
   <header class="site-header">
     <div class="container">
-      <a href="index.html" class="site-brand">Cognitive Science and Psycholinguistics Lab</a>
-      <button class="nav-toggle" onclick="document.querySelector('.site-nav').classList.toggle('open')" aria-label="Menu">
+      <a href="index.html" class="site-brand" aria-label="CSPL home">
+        <img src="assets/img/cspl.png" alt="" class="brand-logo">
+        <span class="brand-copy"><strong>CSPL</strong><small>Cognitive Science &amp; Psycholinguistics Lab</small></span>
+      </a>
+      <button class="nav-toggle" onclick="const nav=this.nextElementSibling; const open=nav.classList.toggle('open'); this.setAttribute('aria-expanded', String(open));" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
         <span></span><span></span><span></span>
       </button>
-      <nav class="site-nav">
+      <nav class="site-nav" id="site-nav">
         <a href="index.html">Home</a>
         <a href="people.html">People</a>
         <a href="publications.html">Publications</a>
-        <a href="workshops.html" class="active">Events &amp; Trainings</a>
+        <a href="workshops.html" class="active">Events &amp; Training</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <div class="container">
+    <div class="container container--wide">
       <div class="page-header">
         <p class="label">Training &amp; Events</p>
-        <h1>Events &amp; Trainings</h1>
+        <h1>Events &amp; Training</h1>
         <p>
-          We organize workshops to build research capacity in cognitive science
-          and psycholinguistic methods in Nepal and South Asia.
+          Invited talks and hands-on methods training connecting CSPL with researchers
+          in Nepal, South Asia, and beyond.
         </p>
       </div>
 
-      <section class="section fade-in">
+      <section class="section events-index fade-in">
 
-        <h2>2026</h2>
+        <div class="events-year-group">
+        <h2 class="events-year">2026</h2>
+        <div class="events-list">
+
+        <div class="workshop-card workshop-card--featured">
+          <p class="event-type">Invited programme</p>
+          <h3>Language, Mind, and Society — Invited Lecture &amp; Mouse-Tracking Workshop</h3>
+          <div class="workshop-meta">
+            <span>August 8 &amp; 10, 2026</span>
+            <span class="sep">·</span>
+            <span>School of Languages and Linguistics, Jadavpur University</span>
+            <span class="sep">·</span>
+            <span>Dr. Lekhnath Sharma Pathak</span>
+          </div>
+          <p>
+            Dr. Pathak delivered an invited lecture on bilingual and trilingual parallel
+            language activation on August 8. A hands-on workshop on August 10 will introduce
+            mouse tracking for experimental design, data collection, analysis, and interpretation
+            in language-processing research.
+          </p>
+          <ul class="workshop-topics">
+            <li>Bilingual processing</li>
+            <li>Trilingual activation</li>
+            <li>Mouse tracking</li>
+            <li>Experimental design</li>
+          </ul>
+          <a href="https://www.youtube.com/watch?v=x7suZn9x788" class="btn" target="_blank" rel="noopener">Watch Invited Talk</a>
+        </div>
 
         <div class="workshop-card">
+          <p class="event-type">Methods training</p>
           <h3>Introduction to PsychoPy &amp; EEG for Cognitive Science &amp; Psycholinguistics</h3>
           <div class="workshop-meta">
             <span>February 6–8, 2026</span>
@@ -92,14 +123,19 @@
             Workshop Site
           </a>
         </div>
+        </div>
+        </div>
 
       </section>
 
-      <section class="section fade-in">
+      <section class="section events-index fade-in">
 
-        <h2>2024</h2>
+        <div class="events-year-group">
+        <h2 class="events-year">2024</h2>
+        <div class="events-list">
 
         <div class="workshop-card">
+          <p class="event-type">Collaborative workshop</p>
           <h3>Cross-Cultural Psycholinguistics Workshop</h3>
           <div class="workshop-meta">
             <span>February 2024</span>
@@ -116,6 +152,64 @@
           <p class="workshop-support">
             UZH &middot; NCCR Evolving Language &middot; Tribhuvan University
           </p>
+        </div>
+        </div>
+        </div>
+
+      </section>
+
+      <section class="section events-index fade-in">
+
+        <div class="events-year-group">
+        <h2 class="events-year">2021</h2>
+        <div class="events-list">
+
+        <div class="workshop-card">
+          <p class="event-type">International webinar</p>
+          <h3>Cognitive Science and Psycholinguistics for Understanding Human Mind, Brain and Cognition</h3>
+          <div class="workshop-meta">
+            <span>February 26, 2021</span>
+            <span class="sep">·</span>
+            <span>Online</span>
+            <span class="sep">·</span>
+            <span>CSPL · NTNU Alumni Nepal · NTNU Language Acquisition and Language Processing Lab</span>
+          </div>
+          <p>
+            Dr. Pathak initiated this international webinar on the prospects and possibilities
+            of cognitive science and psycholinguistics in Nepal. It brought together researchers,
+            university leaders, mental-health professionals, and representatives of the Royal
+            Norwegian Embassy.
+          </p>
+          <a href="https://www.ntnu.edu/documents/1270974211/1279942213/Rapporteur-report%2Bon%2BNTNU%2BAlumni%2BWebinar%2Bon%2BCognitive%2BScience%2Band%2BPsycholinguistics.pdf/979c1122-f52c-4a19-82a8-b969fce4312f?t=1616061375546" class="btn" target="_blank" rel="noopener">Read Rapporteur’s Report</a>
+        </div>
+        </div>
+        </div>
+
+      </section>
+
+      <section class="section events-index fade-in">
+
+        <div class="events-year-group">
+        <h2 class="events-year">2020</h2>
+        <div class="events-list">
+
+        <div class="workshop-card">
+          <p class="event-type">Foundational keynote &amp; research presentation</p>
+          <h3>Third International Workshop of the Society for Cognitive Science of Culture</h3>
+          <div class="workshop-meta">
+            <span>February 3–7, 2020</span>
+            <span class="sep">·</span>
+            <span>BITS Pilani, Goa</span>
+          </div>
+          <p>
+            Dr. Pathak delivered the keynote “Situation of Illiterates in Nepal: What Does It
+            Mean for Cognitive Science?” Sabita Rijal and Dr. Pathak also presented “Bilingual
+            Literacy Effect on Executive Control,” foundational experimental work that preceded
+            the lab’s formal establishment in 2021.
+          </p>
+          <a href="https://doi.org/10.3126/gipan.v5i1.49542" class="btn" target="_blank" rel="noopener">Read the Lab History</a>
+        </div>
+        </div>
         </div>
 
       </section>
@@ -141,7 +235,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <div class="footer-motto">Mining the Mind, Bracing the Brain</div>
+        <div class="footer-nepali" lang="ne">संज्ञानात्मक विज्ञान तथा मनोभाषाविज्ञान प्रयोगशाला · त्रिभुवन विश्वविद्यालय</div>
         Cognitive Science and Psycholinguistics Laboratory, Tribhuvan University
       </div>
     </div>

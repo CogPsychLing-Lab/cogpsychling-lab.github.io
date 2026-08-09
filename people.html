@@ -12,7 +12,7 @@
   <meta property="og:url" content="https://cogpsychling-lab.github.io/people.html">
   <meta property="og:image" content="https://cogpsychling-lab.github.io/assets/img/cspl-logo.jpeg">
   <meta name="twitter:card" content="summary">
-  <link rel="icon" type="image/svg+xml" href="assets/img/cspl-logo.svg">
+  <link rel="icon" type="image/png" href="assets/img/cspl.png">
   <link rel="stylesheet" href="assets/css/style.css">
   <script type="application/ld+json">
   {
@@ -36,15 +36,18 @@
 
   <header class="site-header">
     <div class="container">
-      <a href="index.html" class="site-brand">Cognitive Science and Psycholinguistics Lab</a>
-      <button class="nav-toggle" onclick="document.querySelector('.site-nav').classList.toggle('open')" aria-label="Menu">
+      <a href="index.html" class="site-brand" aria-label="CSPL home">
+        <img src="assets/img/cspl.png" alt="" class="brand-logo">
+        <span class="brand-copy"><strong>CSPL</strong><small>Cognitive Science &amp; Psycholinguistics Lab</small></span>
+      </a>
+      <button class="nav-toggle" onclick="const nav=this.nextElementSibling; const open=nav.classList.toggle('open'); this.setAttribute('aria-expanded', String(open));" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
         <span></span><span></span><span></span>
       </button>
-      <nav class="site-nav">
+      <nav class="site-nav" id="site-nav">
         <a href="index.html">Home</a>
         <a href="people.html" class="active">People</a>
         <a href="publications.html">Publications</a>
-        <a href="workshops.html">Events &amp; Trainings</a>
+        <a href="workshops.html">Events &amp; Training</a>
       </nav>
     </div>
   </header>
@@ -70,7 +73,7 @@
               Dr. Pathak founded Nepal's first Cognitive Science &amp; Psycholinguistics Lab. His PhD from the Center for Neural &amp; Cognitive Sciences at the University of Hyderabad (under Ramesh Kumar Mishra) focused on bilingual language processing. His research spans child language acquisition, multilingual cognition, dyslexia, psycholinguistic approaches to honorification, and cross-linguistic spatial semantics.
             </p>
             <p class="bio">
-              Beyond the lab, Dr. Pathak has been instrumental in advocating for cognitive science as an academic discipline in Nepal, delivering public lectures and keynotes on the science of learning.
+              Beyond the lab, Dr. Pathak has been instrumental in advocating for cognitive science as an academic discipline in Nepal. In February 2020, he delivered the keynote “Situation of Illiterates in Nepal: What Does It Mean for Cognitive Science?” at the Third International Workshop of the Society for Cognitive Science of Culture at BITS Pilani, Goa.
             </p>
             <div class="pi-works">
               <p class="pi-works-heading">Selected Works</p>
@@ -116,32 +119,42 @@
 
       <section class="section fade-in">
         <span class="people-section-title">Researchers</span>
-        <div class="researchers-network">
+        <div class="researchers-grid">
 
-          <div class="researcher-node" style="transform:translateY(3.5rem)">
+          <div class="researcher-card">
             <img src="assets/img/people/mohan-gurung.jpg" alt="Mohan Gurung">
             <h3>Mohan Gurung</h3>
             <p class="role">MPhil-PhD Scholar<br>Central Dept. of Linguistics, TU</p>
-            <p class="bio">Child Language Acquisition in Gurung Language</p>
+            <p class="bio">Mohan Gurung works on child language acquisition, with a particular focus on the Gurung language. His doctoral research investigates how Gurung-speaking children acquire language, contributing to a collaborative research project on child language development in an understudied Nepali language.</p>
           </div>
 
-          <div class="researcher-node" style="transform:translateY(0)">
+          <div class="researcher-card">
             <img src="assets/img/people/sambit.jpg" alt="Sambit Rimal">
             <h3>Sambit Rimal</h3>
             <p class="role">Graduate Student Researcher<br>Central Dept. of Linguistics, TU</p>
-            <p class="bio">Trilingual cognitive control using mousetracking and eyetracing</p>
+            <div class="links">
+              <a href="https://sambit.com.np/" class="profile-link--text" target="_blank" rel="noopener" aria-label="Sambit Rimal's website">Website <span aria-hidden="true">↗</span></a>
+            </div>
+            <p class="bio">Sambit Rimal is an MA student in Linguistics at Tribhuvan University with an undergraduate degree in Computer Science and Information Technology. He studies multilingual language processing and cognitive control using process-tracing methods such as mouse-tracking and remote eye-tracking. He is currently working on a Nepali study of agent preference in event cognition and a trilingual study of cognitive control. He was a 2025 <a href="https://cognitivesciencesociety.org/cogsci-x-gorilla-grant-2025/" target="_blank" rel="noopener">CogSci × Gorilla Grant</a> recipient.</p>
           </div>
 
-          <div class="researcher-node" style="transform:translateY(3rem)">
+          <div class="researcher-card">
             <img src="assets/img/people/sabita-rijal.jpeg" alt="Sabita Rijal">
             <h3>Sabita Rijal</h3>
             <p class="role">Research Assistant<br>Central Dept. of Linguistics</p>
+            <p class="bio">Sabita Rijal has worked on bilingualism, language of instruction, and cognitive control. Her research has examined how first- and second-language-mediated instruction relates to linguistic performance and executive control, using measures such as verbal fluency, Stroop and Flanker tasks, and mouse-tracking methods.</p>
           </div>
 
-          <div class="researcher-node" style="transform:translateY(0.5rem)">
+          <div class="researcher-card">
             <img src="assets/img/people/aarya-pathak.png" alt="Aarya Pathak">
             <h3>Aarya Pathak</h3>
             <p class="role">Computer Science Undergrad<br>Kathmandu University</p>
+            <div class="links">
+              <a href="https://scholar.google.com/citations?user=c9WEdq8AAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar">
+                <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 10a8 8 0 0 1 7.162 3.44L24 9.5z"/></svg>
+              </a>
+            </div>
+            <p class="bio">Passionate about the intersection of deep learning and cognitive science, with a focus on attention mechanisms, computational approaches to mental health, and computational linguistics. Seeks to understand the mechanisms of human cognition to build innovative solutions.</p>
           </div>
 
         </div>
@@ -169,7 +182,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <div class="footer-motto">Mining the Mind, Bracing the Brain</div>
+        <div class="footer-nepali" lang="ne">संज्ञानात्मक विज्ञान तथा मनोभाषाविज्ञान प्रयोगशाला · त्रिभुवन विश्वविद्यालय</div>
         Cognitive Science and Psycholinguistics Laboratory, Tribhuvan University
       </div>
     </div>
@@ -187,68 +200,6 @@
 
       document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-      function drawResearcherLines() {
-        const network = document.querySelector('.researchers-network');
-        if (!network) return;
-        const existing = network.querySelector('.researchers-svg');
-        if (existing) existing.remove();
-
-        if (window.innerWidth <= 768) return;
-
-        const nodes = network.querySelectorAll('.researcher-node');
-        if (nodes.length < 2) return;
-
-        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        svg.classList.add('researchers-svg');
-
-        const cr = network.getBoundingClientRect();
-
-        // Gather image geometry
-        const nodeData = Array.from(nodes).map(node => {
-          const img = node.querySelector('img');
-          const r = img.getBoundingClientRect();
-          const cx = r.left - cr.left + r.width / 2;
-          const cy = r.top  - cr.top  + r.height / 2;
-          return { x: cx, yCenter: cy, yTop: cy - r.height / 2, yBottom: cy + r.height / 2 };
-        });
-
-        // High nodes (small y) → curve touches their bottom edge
-        // Low nodes  (large y) → curve touches their top  edge
-        const ys = nodeData.map(n => n.yCenter);
-        const mid = (Math.min(...ys) + Math.max(...ys)) / 2;
-        const pts = nodeData.map(n => ({
-          x: n.x,
-          y: n.yCenter < mid ? n.yBottom : n.yTop
-        }));
-
-        // Single Catmull-Rom spline through the edge-connection points
-        let d = `M ${pts[0].x} ${pts[0].y}`;
-        for (let i = 0; i < pts.length - 1; i++) {
-          const p0 = pts[Math.max(0, i - 1)];
-          const p1 = pts[i];
-          const p2 = pts[i + 1];
-          const p3 = pts[Math.min(pts.length - 1, i + 2)];
-          const cp1x = p1.x + (p2.x - p0.x) / 6;
-          const cp1y = p1.y + (p2.y - p0.y) / 6;
-          const cp2x = p2.x - (p3.x - p1.x) / 6;
-          const cp2y = p2.y - (p3.y - p1.y) / 6;
-          d += ` C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${p2.x} ${p2.y}`;
-        }
-        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        path.setAttribute('d', d);
-        path.setAttribute('fill', 'none');
-        path.setAttribute('stroke', 'rgba(158,59,47,0.15)');
-        path.setAttribute('stroke-width', '2');
-        path.setAttribute('stroke-linecap', 'round');
-        path.setAttribute('stroke-linejoin', 'round');
-        svg.appendChild(path);
-
-        network.insertBefore(svg, network.firstChild);
-      }
-
-      // Draw after images are loaded so getBoundingClientRect is accurate
-      window.addEventListener('load', drawResearcherLines);
-      window.addEventListener('resize', drawResearcherLines);
     });
   </script>
 

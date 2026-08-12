@@ -1813,6 +1813,8 @@ details.pub-abstract p {
 
   .collab-strip-inner {
     display: block;
+    padding-top: 0;
+    padding-bottom: 0.2rem;
   }
 
   .collab-label {
@@ -1822,15 +1824,19 @@ details.pub-abstract p {
   .collab-list {
     grid-template-columns: 1fr;
     width: 100%;
-    gap: 0.55rem;
+    gap: 0;
   }
 
   .collab-list li,
   .collab-list li:nth-child(even) {
     justify-content: flex-start;
-    padding: 0;
+    padding: 0.72rem 0;
     text-align: left;
     border-left: 0;
+  }
+
+  .collab-list li + li {
+    border-top: 1px solid var(--color-border);
   }
 
   .collab-list li::before,

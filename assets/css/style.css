@@ -1145,27 +1145,23 @@ p:last-child { margin-bottom: 0; }
 /* --- Collaboration strip --- */
 .collab-strip {
   position: relative;
-  padding: 1.25rem 0;
+  padding: 0;
   background: #FFFFFF;
   border-top: 0;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--color-ink) 0 82%, var(--color-signal) 82% 100%) 1;
 }
 
-.collab-strip::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, var(--color-ink) 0 82%, var(--color-signal) 82% 100%);
+.collab-rail {
+  position: relative;
+  padding: 0.44rem 0 0.46rem;
+  background: var(--color-ink);
 }
 
 .collab-strip-inner {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+  display: block;
+  padding-top: 0.72rem;
+  padding-bottom: 0.78rem;
 }
 
 .collab-label {
@@ -1174,26 +1170,52 @@ p:last-child { margin-bottom: 0; }
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
-  white-space: nowrap;
-  padding-right: 1.5rem;
-  border-right: 1px solid var(--color-border);
+  color: #FFFFFF;
+  display: block;
+  margin: 0;
 }
 
 .collab-list {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem 1rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 0.9rem 0;
   list-style: none;
 }
 
 .collab-list li {
-  font-size: 0.85rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  padding: 0 1.5rem;
+  text-align: center;
   color: var(--color-text-secondary);
 }
 
+.collab-list li::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: none;
+  width: 0;
+  height: 36px;
+  transform: translateY(-50%);
+  border-left: 1.5px solid transparent;
+  border-image: linear-gradient(180deg, var(--color-ink) 0 82%, var(--color-signal) 82% 100%) 1;
+}
+
+.collab-list li:nth-child(even)::before {
+  display: block;
+}
+
 .collab-list a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: var(--color-text-secondary);
   font-weight: 500;
   transition: color 0.2s ease;
@@ -1203,10 +1225,22 @@ p:last-child { margin-bottom: 0; }
   color: var(--color-accent);
 }
 
-.collab-list li + li::before {
-  content: '·';
-  margin-right: 1rem;
-  color: var(--color-signal-soft);
+.collab-affiliation {
+  margin-top: 0.1rem;
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+  font-weight: 400;
+}
+
+@media (min-width: 1100px) {
+  .collab-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+  }
+
+  .collab-list li + li::before {
+    display: block;
+  }
 }
 
 /* --- Research icons --- */
@@ -1584,6 +1618,17 @@ details.pub-abstract p {
   margin: 0;
 }
 
+@media (min-width: 900px) {
+  .methods-intro,
+  .methods-intro h2 {
+    max-width: none;
+  }
+
+  .methods-intro h2 {
+    white-space: nowrap;
+  }
+}
+
 .method-panel {
   display: grid;
   grid-template-columns: minmax(230px, 0.72fr) minmax(0, 1.28fr);
@@ -1767,16 +1812,34 @@ details.pub-abstract p {
   .nav-toggle { display: block; }
 
   .collab-strip-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.65rem;
+    display: block;
   }
 
   .collab-label {
-    width: fit-content;
-    padding-right: 0;
-    border-right: 0;
     white-space: normal;
+  }
+
+  .collab-list {
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 0.55rem;
+  }
+
+  .collab-list li,
+  .collab-list li:nth-child(even) {
+    justify-content: flex-start;
+    padding: 0;
+    text-align: left;
+    border-left: 0;
+  }
+
+  .collab-list li::before,
+  .collab-list li:nth-child(even)::before {
+    display: none;
+  }
+
+  .collab-list a {
+    align-items: flex-start;
   }
 
   .hero { padding: 2.5rem 0 2.25rem; }

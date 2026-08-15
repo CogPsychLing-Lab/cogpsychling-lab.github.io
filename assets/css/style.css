@@ -1494,13 +1494,6 @@ details.pub-abstract p {
   max-width: 100%;
 }
 
-.page-header .publication-note {
-  margin-top: 0.55rem;
-  max-width: 62rem;
-  font-size: 0.78rem;
-  color: var(--color-text-muted);
-}
-
 /* --- Footer --- */
 .site-footer {
   border-top: 3px solid var(--color-signal);

@@ -901,16 +901,17 @@ p:last-child { margin-bottom: 0; }
 
 .publication-year-group {
   display: grid;
-  grid-template-columns: 110px minmax(0, 1fr);
-  gap: clamp(2rem, 5vw, 4.5rem);
-  padding: 2rem 0 1.25rem;
-  border-top: 1px solid var(--color-border);
+  grid-template-columns: 80px minmax(0, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  padding: 1.75rem 0 1.1rem;
+  border-top: 1px solid var(--color-border-light);
 }
 
 .pub-year {
   position: sticky;
   top: 92px;
   align-self: start;
+  padding-top: 0.1rem;
   font-family: var(--font-mono);
   font-size: 0.82rem;
   font-weight: 600;
@@ -929,6 +930,24 @@ p:last-child { margin-bottom: 0; }
 }
 
 .pub-entry:last-child { border-bottom: none; margin-bottom: 0; }
+
+.pub-citation {
+  margin: 0;
+  padding-left: 1.7rem;
+  text-indent: -1.7rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+.pub-citation a {
+  color: var(--color-accent);
+  overflow-wrap: anywhere;
+}
+
+.pub-citation a:hover {
+  color: var(--color-signal);
+}
 
 .pub-title {
   font-family: var(--font-heading);
@@ -972,27 +991,30 @@ p:last-child { margin-bottom: 0; }
 }
 
 .pub-links {
-  margin-top: 0.5rem;
-  display: flex;
-  gap: 0.35rem;
+  margin: 0.75rem 0.9rem 0 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
   flex-wrap: wrap;
+  vertical-align: middle;
 }
 
 .pub-links a {
   font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 500;
-  padding: 0.2rem 0.55rem;
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  color: var(--color-text-secondary);
+  padding: 0.1rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--color-border);
+  border-radius: 0;
+  color: var(--color-accent);
   transition: all 0.2s ease;
 }
 
 .pub-links a:hover {
-  background: var(--color-accent);
-  color: white;
-  border-color: var(--color-accent);
+  background: transparent;
+  color: var(--color-signal);
+  border-color: var(--color-signal);
 }
 
 /* --- Events: year-led programme index --- */
@@ -1389,7 +1411,14 @@ p:last-child { margin-bottom: 0; }
 
 /* --- Publication abstracts --- */
 details.pub-abstract {
-  margin-top: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.75rem;
+  vertical-align: middle;
+}
+
+details.pub-abstract[open] {
+  display: block;
 }
 
 details.pub-abstract summary {
@@ -1463,6 +1492,13 @@ details.pub-abstract p {
   color: var(--color-text-secondary);
   margin: 0;
   max-width: 100%;
+}
+
+.page-header .publication-note {
+  margin-top: 0.55rem;
+  max-width: 62rem;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
 }
 
 /* --- Footer --- */

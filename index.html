@@ -302,9 +302,9 @@
             <div class="activity-carousel-track">
               <article class="activity-carousel-slide" role="group" aria-roledescription="slide" aria-label="1 of 2" data-slide-label="Arrate research discussion">
                 <figure class="photo-story activity-photo-note">
-                  <img class="photo-story-primary" src="assets/img/collaborations/arrate-meeting-room.png" alt="Sambit Rimal presenting an eye-tracking study during a research discussion with Prof. Arrate Isasi-Isasmendi at CSPL" loading="lazy" width="1600" height="1200">
+                  <img class="photo-story-primary" src="assets/img/collaborations/arrate-meeting-room.jpg" alt="Sambit Rimal presenting an eye-tracking study during a research discussion with Prof. Arrate Isasi-Isasmendi at CSPL" loading="lazy" decoding="async" width="1200" height="900">
                   <div class="photo-story-aside">
-                    <img class="photo-story-secondary" src="assets/img/collaborations/arrate-group-selfie.png" alt="Dr. Lekhnath Sharma Pathak, Prof. Arrate Isasi-Isasmendi, and Sambit Rimal outside the Cognitive Science and Psycholinguistics Lab" loading="lazy" width="1600" height="1200">
+                    <img class="photo-story-secondary" src="assets/img/collaborations/arrate-group-selfie.jpg" alt="Dr. Lekhnath Sharma Pathak, Prof. Arrate Isasi-Isasmendi, and Sambit Rimal outside the Cognitive Science and Psycholinguistics Lab" loading="lazy" decoding="async" width="1200" height="900">
                     <figcaption>
                       <span class="photo-story-label">Research discussion · 17 August 2026</span>
                       <span>Meeting with Prof. Arrate Isasi-Isasmendi on ergativity-mediated event cognition.</span>
@@ -314,9 +314,9 @@
               </article>
               <article class="activity-carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 2" aria-hidden="true" data-slide-label="PsychoPy and EEG workshop">
                 <figure class="photo-story activity-photo-note">
-                  <img class="photo-story-primary workshop-photo--hands-on" src="assets/img/workshops/psycho-py-eeg-hands-on.png" alt="Participants fitting an EEG cap during the PsychoPy and EEG workshop at Tribhuvan University" loading="lazy" width="1536" height="2048">
+                  <img class="photo-story-primary workshop-photo--hands-on" src="assets/img/workshops/psycho-py-eeg-hands-on.jpg" alt="Participants fitting an EEG cap during the PsychoPy and EEG workshop at Tribhuvan University" loading="lazy" decoding="async" width="1200" height="1600">
                   <div class="photo-story-aside">
-                    <img class="photo-story-secondary" src="assets/img/workshops/psycho-py-eeg-lecture.png" alt="A PsychoPy and EEG workshop lecture underway at Tribhuvan University" loading="lazy" width="2048" height="1536">
+                    <img class="photo-story-secondary" src="assets/img/workshops/psycho-py-eeg-lecture.jpg" alt="A PsychoPy and EEG workshop lecture underway at Tribhuvan University" loading="lazy" decoding="async" width="1200" height="900">
                     <figcaption>
                       <span class="photo-story-label">Workshop · 6–8 February 2026</span>
                       <span>Three-day PsychoPy &amp; EEG workshop with Dr. Laura Giglio of the University of Zürich.</span>
@@ -783,6 +783,10 @@
       let current = 0;
       let timer = null;
       let touchStartX = null;
+      const updatePosition = () => {
+        const slideWidth = carousel.getBoundingClientRect().width;
+        track.style.transform = 'translate3d(-' + (current * slideWidth) + 'px, 0, 0)';
+      };
       const dots = slides.map((slide, i) => {
         const dot = document.createElement('button');
         dot.className = 'activity-carousel-dot' + (i === 0 ? ' is-active' : '');
@@ -797,7 +801,7 @@
 
       function show(index) {
         current = (index + slides.length) % slides.length;
-        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        updatePosition();
         slides.forEach((slide, i) => slide.setAttribute('aria-hidden', i === current ? 'false' : 'true'));
         dots.forEach((dot, i) => {
           const active = i === current;
@@ -827,6 +831,10 @@
       carousel.addEventListener('focusout', event => {
         if (!carousel.contains(event.relatedTarget)) start();
       });
+      window.addEventListener('resize', updatePosition);
+      if ('ResizeObserver' in window) {
+        new ResizeObserver(updatePosition).observe(carousel);
+      }
       track.addEventListener('touchstart', event => {
         touchStartX = event.changedTouches[0].clientX;
         stop();

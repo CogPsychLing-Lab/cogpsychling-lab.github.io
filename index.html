@@ -298,16 +298,42 @@
               </li>
             </ul>
           </div>
-          <figure class="photo-story activity-photo-note">
-            <img class="photo-story-primary" src="assets/img/collaborations/arrate-meeting-room.png" alt="Sambit Rimal presenting an eye-tracking study during a research discussion with Prof. Arrate Isasi-Isasmendi at CSPL" loading="lazy" width="1600" height="1200">
-            <div class="photo-story-aside">
-              <img class="photo-story-secondary" src="assets/img/collaborations/arrate-group-selfie.png" alt="Dr. Lekhnath Sharma Pathak, Prof. Arrate Isasi-Isasmendi, and Sambit Rimal outside the Cognitive Science and Psycholinguistics Lab" loading="lazy" width="1600" height="1200">
-              <figcaption>
-                <span class="photo-story-label">Research discussion · 17 August 2026</span>
-                <span>Meeting with Prof. Arrate Isasi-Isasmendi on ergativity-mediated event cognition.</span>
-              </figcaption>
+          <div class="activity-carousel" data-carousel aria-roledescription="carousel" aria-label="Recent activity from the lab">
+            <div class="activity-carousel-track">
+              <article class="activity-carousel-slide" role="group" aria-roledescription="slide" aria-label="1 of 2" data-slide-label="Arrate research discussion">
+                <figure class="photo-story activity-photo-note">
+                  <img class="photo-story-primary" src="assets/img/collaborations/arrate-meeting-room.png" alt="Sambit Rimal presenting an eye-tracking study during a research discussion with Prof. Arrate Isasi-Isasmendi at CSPL" loading="lazy" width="1600" height="1200">
+                  <div class="photo-story-aside">
+                    <img class="photo-story-secondary" src="assets/img/collaborations/arrate-group-selfie.png" alt="Dr. Lekhnath Sharma Pathak, Prof. Arrate Isasi-Isasmendi, and Sambit Rimal outside the Cognitive Science and Psycholinguistics Lab" loading="lazy" width="1600" height="1200">
+                    <figcaption>
+                      <span class="photo-story-label">Research discussion · 17 August 2026</span>
+                      <span>Meeting with Prof. Arrate Isasi-Isasmendi on ergativity-mediated event cognition.</span>
+                    </figcaption>
+                  </div>
+                </figure>
+              </article>
+              <article class="activity-carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 2" aria-hidden="true" data-slide-label="PsychoPy and EEG workshop">
+                <figure class="photo-story activity-photo-note">
+                  <img class="photo-story-primary workshop-photo--hands-on" src="assets/img/workshops/psycho-py-eeg-hands-on.png" alt="Participants fitting an EEG cap during the PsychoPy and EEG workshop at Tribhuvan University" loading="lazy" width="1536" height="2048">
+                  <div class="photo-story-aside">
+                    <img class="photo-story-secondary" src="assets/img/workshops/psycho-py-eeg-lecture.png" alt="A PsychoPy and EEG workshop lecture underway at Tribhuvan University" loading="lazy" width="2048" height="1536">
+                    <figcaption>
+                      <span class="photo-story-label">Workshop · 6–8 February 2026</span>
+                      <span>Three-day PsychoPy &amp; EEG workshop with Dr. Laura Giglio of the University of Zürich.</span>
+                    </figcaption>
+                  </div>
+                </figure>
+              </article>
             </div>
-          </figure>
+            <div class="activity-carousel-controls">
+              <div class="activity-carousel-nav" aria-label="Carousel controls">
+                <button class="activity-carousel-button" type="button" data-carousel-prev aria-label="Previous activity">←</button>
+                <button class="activity-carousel-button" type="button" data-carousel-next aria-label="Next activity">→</button>
+              </div>
+              <div class="activity-carousel-dots" role="tablist" aria-label="Choose recent activity"></div>
+              <span class="activity-carousel-status" aria-live="polite">Slide 1 of 2</span>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -742,6 +768,79 @@
       setSize();
       window.addEventListener('resize', setSize);
       draw();
+    }());
+
+    /* ── Recent activity carousel ── */
+    (function () {
+      const carousel = document.querySelector('[data-carousel]');
+      if (!carousel) return;
+
+      const track = carousel.querySelector('.activity-carousel-track');
+      const slides = Array.from(carousel.querySelectorAll('.activity-carousel-slide'));
+      const dotsContainer = carousel.querySelector('.activity-carousel-dots');
+      const status = carousel.querySelector('.activity-carousel-status');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let current = 0;
+      let timer = null;
+      let touchStartX = null;
+      const dots = slides.map((slide, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'activity-carousel-dot' + (i === 0 ? ' is-active' : '');
+        dot.type = 'button';
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+        dot.setAttribute('aria-label', 'Show ' + (slide.dataset.slideLabel || ('activity ' + (i + 1))));
+        dot.addEventListener('click', () => { show(i); start(); });
+        dotsContainer.appendChild(dot);
+        return dot;
+      });
+
+      function show(index) {
+        current = (index + slides.length) % slides.length;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        slides.forEach((slide, i) => slide.setAttribute('aria-hidden', i === current ? 'false' : 'true'));
+        dots.forEach((dot, i) => {
+          const active = i === current;
+          dot.classList.toggle('is-active', active);
+          dot.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        if (status) status.textContent = 'Slide ' + (current + 1) + ' of ' + slides.length;
+      }
+
+      function stop() {
+        if (timer) window.clearInterval(timer);
+        timer = null;
+      }
+
+      function start() {
+        if (reduceMotion || slides.length < 2) return;
+        stop();
+        timer = window.setInterval(() => show(current + 1), 8000);
+      }
+
+      carousel.querySelector('[data-carousel-prev]').addEventListener('click', () => { show(current - 1); start(); });
+      carousel.querySelector('[data-carousel-next]').addEventListener('click', () => { show(current + 1); start(); });
+
+      carousel.addEventListener('mouseenter', stop);
+      carousel.addEventListener('mouseleave', start);
+      carousel.addEventListener('focusin', stop);
+      carousel.addEventListener('focusout', event => {
+        if (!carousel.contains(event.relatedTarget)) start();
+      });
+      track.addEventListener('touchstart', event => {
+        touchStartX = event.changedTouches[0].clientX;
+        stop();
+      }, { passive: true });
+      track.addEventListener('touchend', event => {
+        if (touchStartX === null) return;
+        const distance = event.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(distance) > 45) show(current + (distance < 0 ? 1 : -1));
+        touchStartX = null;
+        start();
+      }, { passive: true });
+
+      show(0);
+      start();
     }());
   </script>
 

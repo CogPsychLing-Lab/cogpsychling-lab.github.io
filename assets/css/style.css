@@ -2051,6 +2051,12 @@ details.pub-abstract p {
   }
 
   .photo-story { grid-template-columns: 1fr; gap: 0.8rem; }
+  .photo-story.activity-photo-note { grid-template-columns: 1fr; }
+  .photo-story img {
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
   .photo-story-aside { gap: 0; }
   .photo-story .photo-story-secondary { display: none; }
 
